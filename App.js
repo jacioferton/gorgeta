@@ -1,20 +1,64 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TextInput, View, StatusBar, Image } from 'react-native';
 
 export default function App() {
+  const opa = 'foi!'
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView>
       <StatusBar style="auto" />
-    </View>
+      <View style={styles.barraSuperior}>
+        <Image
+          style={styles.imgBarraSuperior}
+          source={require('./src/img/logo.png')}
+          resizeMode='contain'
+        />
+      </View>
+        
+      <View style={styles.container}>
+        <Text style={styles.titulo}>{opa}</Text>
+        <TextInput
+          placeholder='Insira o valor da conta'
+          style={styles.textInput}
+          keyboardType='number-pad'
+        />
+        <TextInput
+          placeholder='Insira uma gorgeta extra'
+          style={styles.textInput}
+          keyboardType='number-pad'
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
     alignItems: 'center',
+    flex: 1
+  },
+  barraSuperior: {
+    backgroundColor: '#fff000',
+    height: 100,
+    width: '100%',
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imgBarraSuperior: {
+    height: 80,
+  },
+  titulo: {
+    paddingVertical: 15,
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  textInput: {
+    height: 50,
+    width: '100%',
+    borderWidth: 1,
+    padding: 5,
+    fontSize: 22, 
+    marginVertical: 15
   },
 });
